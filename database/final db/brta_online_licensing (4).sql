@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2022 at 07:56 AM
+-- Generation Time: Mar 29, 2022 at 10:16 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -69,9 +69,9 @@ CREATE TABLE `exam_schedule` (
 --
 
 INSERT INTO `exam_schedule` (`id`, `applied_batch`, `exam_date`, `shift`, `name`) VALUES
-(1, 1, '2022-12-05', '11:00am', 'মোটর সাইকেল '),
-(2, 2, '2022-12-05', '10:00am', 'হালকা গাড়ী '),
-(3, 3, '2022-02-03', '1:00pm', 'ভারী গাড়ী ');
+(1, 1, '2022-02-24', '10:00am', 'মোটর সাইকেল '),
+(2, 2, '2022-03-04', '11:00am', 'হালকা গাড়ী '),
+(3, 3, '0000-00-00', '9:00am', 'ভারী গাড়ী ');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,10 @@ INSERT INTO `license_info` (`id`, `user_id`, `license_issue_date`, `license_vali
 (7, '220115000004', '2022-01-27', '2027-01-29', '2022-01-30', '3220115000004', 3, '3220115000004', 1),
 (8, '220207000001', '2022-02-07', '2027-02-06', '2022-02-07', '3220207000001', 3, '3220207000001', 1),
 (9, '220208000002', '2022-02-07', '2022-05-31', '', '1220208000002', 1, '1220208000002', 0),
-(10, '220208000002', '2022-02-08', '2027-02-07', '', '3220208000002', 3, '3220208000002', 0);
+(10, '220208000002', '2022-02-08', '2027-02-07', '', '3220208000002', 3, '3220208000002', 0),
+(12, '220209000003', '2022-01-03', '2022-02-01', '', '2220209000003', 2, '2220209000003', 0),
+(13, '220209000003', '2022-02-09', '2027-02-08', '2022-02-09', '3220209000003', 3, '3220209000003', 1),
+(14, '220323000002', '2022-03-23', '2027-03-22', '', '3220323000002', 3, '3220323000002', 1);
 
 -- --------------------------------------------------------
 
@@ -181,11 +184,11 @@ CREATE TABLE `payment_history` (
 --
 
 INSERT INTO `payment_history` (`id`, `user_id`, `transaction_number`, `training_or_license`, `payment_for`, `amount`, `is_paid`, `is_assigned`, `license_given`, `date`, `month`, `year`) VALUES
-(1, '220115000002', 'dddd', 1, '1', 6000, 0, 0, 0, '2022-01-15', '01', '2022'),
+(1, '220115000002', 'dddd', 1, '1', 6000, 1, 0, 0, '2022-01-15', '01', '2022'),
 (2, '220115000003', '9898', 1, '1', 6000, 1, 1, 0, '2022-01-15', '01', '2022'),
 (3, '220115000003', '9898', 2, '1', 345, 1, 1, 1, '2022-01-15', '01', '2022'),
 (4, '220116000005', '0090', 1, '1', 6000, 1, 1, 0, '2022-01-16', '01', '2022'),
-(5, '220116000005', '9999', 2, '4', 2542, 1, 1, 0, '2022-01-16', '01', '2022'),
+(5, '220116000005', '9999', 2, '4', 2542, 1, 0, 0, '2022-01-16', '01', '2022'),
 (6, '220115000004', 'mnbn', 1, '2', 9000, 1, 1, 0, '2022-01-16', '01', '2022'),
 (7, '220116000006', '8989', 1, '2', 9000, 1, 1, 0, '2022-01-16', '01', '2022'),
 (8, '220115000004', '8989', 2, '1', 345, 1, 1, 1, '2022-01-17', '01', '2022'),
@@ -195,7 +198,7 @@ INSERT INTO `payment_history` (`id`, `user_id`, `transaction_number`, `training_
 (12, '220121000007', '0090', 2, '2', 518, 1, 1, 1, '2022-01-21', '01', '2022'),
 (13, '220115000004', '0090', 2, '3', 1680, 1, 1, 1, '2022-01-21', '01', '2022'),
 (14, '220121000008', '9898', 1, '2', 9000, 1, 1, 0, '2022-01-21', '01', '2022'),
-(15, '220121000008', '9898', 2, '1', 345, 1, 0, 0, '2022-01-21', '01', '2022'),
+(15, '220121000008', '9898', 2, '1', 345, 1, 1, 0, '2022-01-21', '01', '2022'),
 (16, '220121000008', '0090', 2, '4', 2542, 1, 1, 0, '2022-01-22', '01', '2022'),
 (17, '220121000007', '9999', 2, '5', 1565, 1, 1, 1, '2022-01-23', '01', '2022'),
 (18, '220121000008', '9999', 2, '3', 1680, 1, 1, 1, '2022-01-23', '01', '2022'),
@@ -203,16 +206,28 @@ INSERT INTO `payment_history` (`id`, `user_id`, `transaction_number`, `training_
 (20, '220123000009', '9999', 1, '3', 3500, 1, 1, 0, '2022-01-23', '01', '2022'),
 (21, '220123000009', '9999', 2, '4', 2542, 1, 1, 1, '2022-01-23', '01', '2022'),
 (22, '220115000004', 'mnbn', 2, '3', 1680, 1, 1, 1, '2022-01-27', '01', '2022'),
-(23, '220115000004', 'mnbn', 2, '5', 1565, 1, 1, 1, '2022-01-27', '01', '2022'),
-(24, '220115000004', '8989', 2, '5', 1565, 1, 1, 1, '2022-01-30', '01', '2022'),
-(25, '220115000004', '9999', 2, '5', 1565, 1, 1, 0, '2022-01-30', '01', '2022'),
-(26, '220115000004', '9999', 2, '5', 1565, 1, 1, 0, '2022-01-30', '01', '2022'),
+(23, '220115000004', 'mnbn', 2, '5', 1565, 1, 0, 1, '2022-01-27', '01', '2022'),
+(24, '220115000004', '8989', 2, '5', 1565, 1, 0, 1, '2022-01-30', '01', '2022'),
+(25, '220115000004', '9999', 2, '5', 1565, 1, 0, 0, '2022-01-30', '01', '2022'),
+(26, '220115000004', '9999', 2, '5', 1565, 1, 0, 0, '2022-01-30', '01', '2022'),
 (27, '220207000001', 'abcd123', 1, '1', 6000, 1, 1, 0, '2022-02-07', '02', '2022'),
 (28, '220207000001', '21324', 2, '3', 1680, 1, 1, 1, '2022-02-07', '02', '2022'),
 (29, '220207000001', 'dfaf45', 2, '5', 1565, 1, 0, 1, '2022-02-07', '02', '2022'),
 (30, '220208000002', '0090', 2, '1', 345, 1, 1, 1, '2022-02-08', '02', '2022'),
 (31, '220208000002', '8989', 2, '3', 1680, 1, 1, 1, '2022-02-08', '02', '2022'),
-(32, '220208000002', '9898', 2, '3', 1680, 1, 0, 1, '2022-02-08', '02', '2022');
+(32, '220208000002', '9898', 2, '3', 1680, 1, 1, 1, '2022-02-08', '02', '2022'),
+(33, '220209000003', '8989', 1, '2', 9000, 1, 1, 0, '2022-02-09', '02', '2022'),
+(34, '220209000003', '8989', 2, '2', 518, 1, 1, 1, '2022-02-09', '02', '2022'),
+(35, '220115000004', '9999', 2, '4', 2542, 1, 0, 0, '2022-02-09', '02', '2022'),
+(36, '220209000003', '0090', 2, '3', 1680, 1, 1, 1, '2022-02-09', '02', '2022'),
+(37, '220209000003', '7878', 2, '5', 1565, 1, 1, 1, '2022-02-09', '02', '2022'),
+(38, '220311000001', '0090', 1, '1', 6000, 1, 1, 0, '2022-03-12', '03', '2022'),
+(39, '220311000001', '0090', 2, '1', 345, 1, 1, 0, '2022-03-12', '03', '2022'),
+(40, '220311000001', '9999', 2, '3', 1680, 1, 0, 0, '2022-03-12', '03', '2022'),
+(41, '220311000001', '9999', 2, '3', 1680, 0, 0, 0, '2022-03-19', '03', '2022'),
+(42, '220208000002', '8989', 1, '2', 9000, 0, 0, 0, '2022-03-19', '03', '2022'),
+(43, '220323000002', '9898', 1, '1', 6000, 1, 1, 0, '2022-03-23', '03', '2022'),
+(44, '220323000002', '9898', 2, '3', 1680, 1, 1, 1, '2022-03-23', '03', '2022');
 
 -- --------------------------------------------------------
 
@@ -240,7 +255,10 @@ INSERT INTO `training_info` (`id`, `user_id`, `batch_no`, `training_done`) VALUE
 (6, '220121000007', 2, 1),
 (7, '220121000008', 2, 1),
 (8, '220123000009', 3, 1),
-(9, '220207000001', 1, 1);
+(9, '220207000001', 1, 1),
+(10, '220209000003', 2, 1),
+(11, '220311000001', 1, 0),
+(12, '220323000002', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -261,8 +279,8 @@ CREATE TABLE `training_schedule` (
 --
 
 INSERT INTO `training_schedule` (`id`, `training_shift`, `training_days`, `is_active`, `batch_no`) VALUES
-(1, '6:00am, 8:00am', 'Mon, Wed', 1, 1),
-(2, '7:00am, 8:00am', 'Mon, Wed', 1, 2),
+(1, '7:00am, 9:00am', 'Sun, Tue', 1, 1),
+(2, '6:00am, 8:00am', 'Mon, Wed', 1, 2),
 (3, '5:00am, 5:00am', 'Sun, Tue', 1, 3),
 (4, '5:00am, 5:00am', 'Sun, Tue', 1, 4);
 
@@ -288,25 +306,30 @@ CREATE TABLE `user` (
   `user_type` varchar(10) NOT NULL,
   `user_id` varchar(30) NOT NULL,
   `month` int(11) NOT NULL,
-  `year` varchar(4) NOT NULL
+  `year` varchar(4) NOT NULL,
+  `given_feedback` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `father_name`, `mother_name`, `date_of_birth`, `email`, `nid`, `date_of_registration`, `phone_number`, `present_address`, `premanent_address`, `sex`, `user_type`, `user_id`, `month`, `year`) VALUES
-(1, 'ADMINISTRATOR', 'FATHER OF ADMIN', 'MOTHER OF ADMIN', '2022-01-14', 'administrator@bodla.com', '0000011111100', '2022-01-14', '01714789654', 'SERVER', 'SERVER', 'others', 'User', '220114000001', 1, '2022'),
-(2, 'IBLISH', 'AZRAIL', 'DAINI', '0444-03-31', 'jgjgjjj@gmail.com', 'JMBMBM', '2022-01-15', 'HJJJJJJJJ', 'CTG', 'NOAKHALI', 'male', 'User', '220115000002', 1, '2022'),
-(3, 'SAIMON ISLAM', 'NURUL HUDA', 'SABERA BEGOM', '2022-01-15', 'saimonislam0123@gmail.com', '1919', '2022-01-15', '07623531119', 'PATENGA', 'SAME', 'female', 'User', '220115000003', 1, '2022'),
-(4, 'SAYEDA RAHNUMA   AKTHAR', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZAAKTHAR', '2022-01-15', 'tasmu997@gmail.com', '7979', '2022-09-05', '01681078714', 'ANDERKILLA', 'SAME', 'female', 'User', '220115000004', 1, '2022'),
-(5, 'ISTIAQUE', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZA AKTHAR', '1996-04-05', 'istiakopu.chy@gmail.com', '2727', '2022-01-16', '07623531119', 'PATENGA', 'SAME', 'male', 'User', '220116000005', 1, '2022'),
-(6, 'SAMIA SULTANA', 'S M MOSTAFA KAMAL', 'SHAMIM AKTER', '1998-01-06', 'samiasultana147@gmail.com', '89765', '2022-01-16', '01829382437', 'BAHADDARHAT', 'HATHAZARI', 'female', 'User', '220116000006', 1, '2022'),
-(7, 'MOIN  KHAN', 'NURUL AMIN', 'UMME HANI', '1997-10-12', 'moinkhan2580@gmail.com', '8797979', '2022-01-21', '07623531119', 'ANDERKILLA', 'SAME', 'male', 'User', '220121000007', 1, '2022'),
-(8, 'TASMU ', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZA AKTHAR', '2022-01-21', 'tasmu998@gmail.com', 'LKLK;', '2027-01-22', '01681078714', 'ANDERKILLA', 'SAME', 'female', 'User', '220121000008', 1, '2022'),
-(9, 'XZS', 'ZXCZ', 'ZCZ', '1998-12-03', 'aa@gmail.com', '7978HGg', '2032-01-21', '01681078714', 'XZCXCc', 'ZXCZAA', 'female', 'User', '220123000009', 1, '2022'),
-(10, 'SAMIA SULTANA', 'S. M. MOSTAFA KAMAL', 'SHAMIM AKTER', '1998-01-06', 'sam17202132@gmail.com', '2132', '2022-02-07', '01829382437', 'BAHADDARHAT, CHITTAGONG', 'HATHAZARI, CHITTAGONG', 'female', 'User', '220207000001', 2, '2022'),
-(11, 'N,N,', ',N,NL', 'NNNNN', '1997-12-07', 'aaaa@gmail.com', '6767', '2022-02-08', '01681078714', 'ANDERKILLA', 'HATHAZARI', 'female', 'User', '220208000002', 2, '2022');
+INSERT INTO `user` (`id`, `name`, `father_name`, `mother_name`, `date_of_birth`, `email`, `nid`, `date_of_registration`, `phone_number`, `present_address`, `premanent_address`, `sex`, `user_type`, `user_id`, `month`, `year`, `given_feedback`) VALUES
+(1, 'ADMINISTRATOR', 'FATHER OF ADMIN', 'MOTHER OF ADMIN', '2022-01-14', 'administrator@bodla.com', '0000011111100', '2022-01-14', '01714789654', 'SERVER', 'SERVER', 'others', 'User', '220114000001', 1, '2022', 0),
+(2, 'IBLISH', 'AZRAIL', 'DAINI', '0444-03-31', 'jgjgjjj@gmail.com', 'JMBMBM', '2022-01-15', 'HJJJJJJJJ', 'CTG', 'NOAKHALI', 'male', 'User', '220115000002', 1, '2022', 0),
+(3, 'SAIMON ISLAM', 'NURUL HUDA', 'SABERA BEGOM', '2022-01-15', 'saimonislam0123@gmail.com', '1919', '2022-01-15', '07623531119', 'PATENGA', 'SAME', 'female', 'User', '220115000003', 1, '2022', 0),
+(4, 'SAYEDA RAHNUMA   AKTHAR', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZAAKTHAR', '2022-01-15', 'tasmu997@gmail.com', '7979', '2022-09-05', '01681078714', 'ANDERKILLA', 'SAME', 'female', 'User', '220115000004', 1, '2022', 0),
+(5, 'ISTIAQUE', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZA AKTHAR', '1996-04-05', 'istiakopu.chy@gmail.com', '2727', '2022-01-16', '07623531119', 'PATENGA', 'SAME', 'male', 'User', '220116000005', 1, '2022', 0),
+(7, 'MOIN  KHAN', 'NURUL AMIN', 'UMME HANI', '1997-10-12', 'moinkhan2580@gmail.com', '8797979', '2022-01-21', '07623531119', 'ANDERKILLA', 'SAME', 'male', 'User', '220121000007', 1, '2022', 0),
+(8, 'TASMU ', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZA AKTHAR', '2022-01-21', 'tasmu998@gmail.com', 'LKLK;', '2027-01-22', '01681078714', 'ANDERKILLA', 'SAME', 'female', 'User', '220121000008', 1, '2022', 0),
+(9, 'XZS', 'ZXCZ', 'ZCZ', '1998-12-03', 'aa@gmail.com', '7978HGg', '2032-01-21', '01681078714', 'XZCXCc', 'ZXCZAA', 'female', 'User', '220123000009', 1, '2022', 0),
+(11, 'N,N,', ',N,NL', 'NNNNN', '1997-12-07', 'aaaa@gmail.com', '6767', '2022-02-08', '01681078714', 'ANDERKILLA', 'HATHAZARI', 'female', 'User', '220208000002', 2, '2022', 0),
+(12, 'HANNAH ', 'BOSHIR AHMED', 'ANISA BANU', '1998-04-09', 'hannah@gmail.com', 'DSDF', '2022-02-09', '01681078714', 'ANDERKILLA', 'HATHAZARI', 'female', 'User', '220209000003', 2, '2022', 0),
+(13, 'SAMIA SULTANA', 'S. M. MOSTAFA KAMAL', 'SHAMIM AKTER', '1998-06-01', 'samiasultana147@gmail.com', '56986', '2022-02-10', '01829382437', 'BAHADDARHAT', 'HATHAZARI', 'female', 'User', '220210000003', 2, '2022', 0),
+(14, 'ISTIAQUE', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZAAKTHAR', '2022-02-22', 'tasmu990@gmail.com', '98797979796669712', '2022-02-22', '01681078714', 'ANDERKILLA', 'SAME', 'male', 'User', '220222000004', 2, '2022', 0),
+(15, 'SAYEDA RAHNUMA   AKTHAR', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZA AKTHAR', '2022-02-22', 'tasmu25980@gmail.com', '88893901208018082', '2022-02-22', '01681078714', 'PATENGA', 'HATHAZARI', 'female', 'User', '220222000005', 2, '2022', 0),
+(16, 'MUNTAHA', 'SAYED RAFIQUE AHMED ', 'KAZI FEROZAAKTHAR', '1997-02-12', 'muntaha@gmail.com', '88893901208018083', '2022-03-12', '01681078714', 'ANDERKILLA', 'SAME', 'female', 'User', '220311000001', 3, '2022', 0),
+(17, 'SAMIA SULTANA', 'S M MOSTAFA KAMAL', 'SHAMIM AKTER', '1998-01-06', 'sam17202132@gmail.com', '34567895989123456', '2022-03-23', '01829382437', 'BAHADDARHAT', 'HATHAZARI', 'female', 'User', '220323000002', 3, '2022', 0);
 
 -- --------------------------------------------------------
 
@@ -327,24 +350,43 @@ CREATE TABLE `user_exam_schedule` (
 --
 
 INSERT INTO `user_exam_schedule` (`id`, `user_id`, `exam_name`, `exam_date`, `exam_shift`) VALUES
-(1, '220116000005', 'মোটর সাইকেল ', '2022-01-13', '10:00am'),
-(2, '220116000005', 'হালকা গাড়ী ', '2022-02-17', '1:00pm'),
-(6, '220121000008', 'মোটর সাইকেল ', '2022-12-25', '10:00am'),
-(7, '220121000008', 'হালকা গাড়ী ', '2022-12-02', '10:00am'),
-(8, '220121000008', 'মোটর সাইকেল ', '2022-12-25', '10:00am'),
-(9, '220121000008', 'হালকা গাড়ী ', '2022-12-02', '10:00am'),
-(10, '220121000008', 'ভারী গাড়ী ', '2022-06-12', '11:00am'),
 (11, '220123000009', 'মোটর সাইকেল ', '2022-12-25', '10:00am'),
 (12, '220123000009', 'হালকা গাড়ী ', '2022-12-02', '10:00am'),
-(19, '220115000004', 'মোটর সাইকেল ', '2022-12-25', '10:00am'),
-(20, '220115000004', 'হালকা গাড়ী ', '2022-12-02', '10:00am'),
-(21, '220115000004', 'ভারী গাড়ী ', '2022-02-03', '1:00pm'),
 (22, '220207000001', 'মোটর সাইকেল ', '2022-12-25', '10:00am'),
 (23, '220207000001', 'হালকা গাড়ী ', '2022-12-02', '10:00am'),
 (24, '220207000001', 'ভারী গাড়ী ', '2022-02-03', '1:00pm'),
 (25, '220208000002', 'মোটর সাইকেল ', '2022-12-05', '11:00am'),
 (26, '220208000002', 'হালকা গাড়ী ', '2022-12-05', '10:00am'),
-(27, '220208000002', 'ভারী গাড়ী ', '2022-02-03', '1:00pm');
+(27, '220208000002', 'ভারী গাড়ী ', '2022-02-03', '1:00pm'),
+(31, '220209000003', 'মোটর সাইকেল ', '2022-02-02', '11:00am'),
+(32, '220209000003', 'হালকা গাড়ী ', '2022-02-02', '10:00am'),
+(33, '220209000003', 'ভারী গাড়ী ', '0000-00-00', '9:00am'),
+(40, '220323000002', 'মোটর সাইকেল ', '2022-02-24', '10:00am'),
+(41, '220323000002', 'হালকা গাড়ী ', '2022-03-04', '11:00am'),
+(42, '220323000002', 'ভারী গাড়ী ', '0000-00-00', '9:00am');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_feedback`
+--
+
+CREATE TABLE `user_feedback` (
+  `id` int(11) NOT NULL,
+  `question_number` int(11) NOT NULL,
+  `answer_rating` int(11) NOT NULL,
+  `total_answered_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_feedback`
+--
+
+INSERT INTO `user_feedback` (`id`, `question_number`, `answer_rating`, `total_answered_user`) VALUES
+(1, 1, 3, 1),
+(2, 3, 5, 1),
+(3, 2, 4, 1),
+(4, 4, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -369,12 +411,16 @@ INSERT INTO `user_login` (`id`, `email`, `password`, `user_type`) VALUES
 (3, 'saimonislam0123@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
 (4, 'tasmu997@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
 (5, 'istiakopu.chy@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
-(6, 'samiasultana147@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'User'),
 (7, 'moinkhan2580@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
 (8, 'tasmu998@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
 (9, 'aa@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
-(10, 'sam17202132@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'User'),
-(11, 'aaaa@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User');
+(11, 'aaaa@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
+(12, 'hannah@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
+(13, 'samiasultana147@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'User'),
+(14, 'tasmu990@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
+(15, 'tasmu25980@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
+(16, 'muntaha@gmail.com', '6a3176aa70a1f76efd23644d772f331c', 'User'),
+(17, 'sam17202132@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'User');
 
 --
 -- Indexes for dumped tables
@@ -447,6 +493,12 @@ ALTER TABLE `user_exam_schedule`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user_feedback`
+--
+ALTER TABLE `user_feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user_login`
 --
 ALTER TABLE `user_login`
@@ -478,7 +530,7 @@ ALTER TABLE `exam_schedule`
 -- AUTO_INCREMENT for table `license_info`
 --
 ALTER TABLE `license_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `master_license`
@@ -496,13 +548,13 @@ ALTER TABLE `master_training`
 -- AUTO_INCREMENT for table `payment_history`
 --
 ALTER TABLE `payment_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `training_info`
 --
 ALTER TABLE `training_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `training_schedule`
@@ -514,19 +566,25 @@ ALTER TABLE `training_schedule`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user_exam_schedule`
 --
 ALTER TABLE `user_exam_schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `user_feedback`
+--
+ALTER TABLE `user_feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_login`
 --
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
